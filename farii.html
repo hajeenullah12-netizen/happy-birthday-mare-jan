@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday Mare Jan Farii ❤️</title>
+
+<style>
+body{
+margin:0;
+overflow:hidden;
+background:linear-gradient(120deg,#ff9a9e,#fad0c4);
+text-align:center;
+font-family:Arial;
+}
+
+/* Presentation sections */
+.section{
+opacity:0;
+transform:translateY(40px);
+animation:show 2s forwards;
+}
+#s2{animation-delay:3s;}
+#s3{animation-delay:6s;}
+#s4{animation-delay:9s;}
+#s5{animation-delay:12s;}
+
+@keyframes show{
+to{opacity:1;transform:translateY(0);}
+}
+
+/* Title */
+h1{
+font-size:50px;
+color:#b30000;
+animation:pulse 2s infinite;
+}
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.1);}
+100%{transform:scale(1);}
+}
+
+/* Photo */
+#photo{
+width:250px;
+height:250px;
+border-radius:50%;
+border:5px solid white;
+animation:zoom 3s infinite alternate;
+}
+@keyframes zoom{
+from{transform:scale(1);}
+to{transform:scale(1.15);}
+}
+
+/* Typing */
+.typing{
+font-size:24px;
+color:#333;
+white-space:nowrap;
+overflow:hidden;
+border-right:3px solid red;
+width:0;
+animation:typing 6s steps(60,end) forwards;
+}
+@keyframes typing{
+to{width:100%;}
+}
+
+/* Falling Effects */
+.confetti,.heart-fall{
+position:fixed;
+top:-10px;
+animation:fall linear infinite;
+}
+.confetti{
+width:10px;
+height:10px;
+}
+.heart-fall{
+font-size:24px;
+}
+@keyframes fall{
+to{transform:translateY(110vh) rotate(360deg);}
+}
+
+/* Balloons */
+.balloon{
+position:fixed;
+bottom:-100px;
+font-size:40px;
+animation:rise 8s linear infinite;
+}
+@keyframes rise{
+to{transform:translateY(-120vh);}
+}
+
+/* Fireworks */
+.firework{
+position:fixed;
+font-size:30px;
+animation:fade 2s infinite;
+}
+@keyframes fade{
+0%{opacity:0;}
+50%{opacity:1;}
+100%{opacity:0;}
+}
+
+/* Popup */
+#popup{
+position:fixed;
+top:40%;
+left:50%;
+transform:translate(-50%,-50%) scale(0);
+background:white;
+padding:25px;
+border-radius:20px;
+border:3px solid red;
+font-size:26px;
+color:#b30000;
+z-index:9999;
+animation:popup 2s forwards;
+}
+@keyframes popup{
+0%{transform:translate(-50%,-50%) scale(0);}
+60%{transform:translate(-50%,-50%) scale(1.2);}
+100%{transform:translate(-50%,-50%) scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+<source src="romantic.mp3">
+</audio>
+
+<div id="popup">
+Happy Birthday Farii 💋❤️<br>
+Ye kiss sirf tumhare liye UUUUUUUUMMMMMMMAAAAAAAAHHHHH😘
+</div>
+
+<div class="section" id="s1">
+<h1>Happy Birthday Farii ❤️</h1>
+</div>
+
+<div class="section" id="s2">
+<img id="photo" src="farii1.jpg">
+</div>
+
+<div class="section" id="s3">
+<p class="typing">
+Aaj 19/01/2002 ko duniya ko tum jesi rooh mili 🥰
+</p>
+</div>
+
+<div class="section" id="s4">
+<p style="font-size:22px;">
+Tum meri zindagi ka sab se khoobsurat hissa ho 💖  
+Tumhari muskurahat meri duniya hai ✨
+</p>
+</div>
+
+<div class="section" id="s5">
+<h2>With Love 💌<br>Hajin Ullah</h2>
+</div>
+
+<script>
+// Hide popup
+setTimeout(()=>popup.style.display="none",5000);
+
+// Slideshow
+let pics=["farii1.jpg","farii2.jpg","farii3.jpg"];
+let i=0;
+setInterval(()=>{
+photo.src=pics[i];
+i=(i+1)%pics.length;
+},2500);
+
+// Confetti
+for(let i=0;i<80;i++){
+ let c=document.createElement("div");
+ c.className="confetti";
+ c.style.left=Math.random()*100+"vw";
+ c.style.backgroundColor=`hsl(${Math.random()*360},100%,50%)`;
+ c.style.animationDuration=(Math.random()*3+3)+"s";
+ document.body.appendChild(c);
+}
+
+// Hearts
+for(let i=0;i<30;i++){
+ let h=document.createElement("div");
+ h.className="heart-fall";
+ h.innerHTML="💖";
+ h.style.left=Math.random()*100+"vw";
+ h.style.animationDuration=(Math.random()*4+4)+"s";
+ document.body.appendChild(h);
+}
+
+// Balloons
+for(let i=0;i<15;i++){
+ let b=document.createElement("div");
+ b.className="balloon";
+ b.innerHTML="🎈";
+ b.style.left=Math.random()*100+"vw";
+ document.body.appendChild(b);
+}
+
+// Fireworks
+setInterval(()=>{
+ let f=document.createElement("div");
+ f.className="firework";
+ f.innerHTML="🎆";
+ f.style.left=Math.random()*100+"vw";
+ f.style.top=Math.random()*100+"vh";
+ document.body.appendChild(f);
+ setTimeout(()=>f.remove(),2000);
+},800);
+</script>
+
+</body>
+</html>
